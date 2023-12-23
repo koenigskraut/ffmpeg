@@ -3,7 +3,6 @@ const std = @import("std");
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
-    const t = target.result;
 
     const libz_dep = b.dependency("libz", .{
         .target = target,
@@ -27,6 +26,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+    const t = lib.target_info.target;
     lib.linkLibrary(libz_dep.artifact("z"));
     lib.linkLibrary(libmp3lame_dep.artifact("mp3lame"));
     lib.linkLibrary(libvorbis_dep.artifact("vorbis"));
@@ -657,7 +657,7 @@ pub fn build(b: *std.Build) void {
         .CONFIG_GRAY = 0,
         .CONFIG_HARDCODED_TABLES = 0,
         .CONFIG_OMX_RPI = 0,
-        .CONFIG_RUNTIME_CPUDETECT = @intFromBool(!target.query.isNativeCpu()),
+        .CONFIG_RUNTIME_CPUDETECT = @intFromBool(!target.isNativeCpu()),
         .CONFIG_SAFE_BITSTREAM_READER = 1,
         .CONFIG_SHARED = 0,
         .CONFIG_SMALL = @intFromBool(optimize == .ReleaseSmall),
