@@ -20,6 +20,14 @@
             .url = "https://github.com/andrewrk/libogg/archive/6c2a602b4f6bee40f56a539bd00c77464ebe7d80.tar.gz",
             .hash = "1220021cfa6e51c344055f233b460a6b1b329900c0240ac070c0871285735f957e5d",
         },
+        .libwebp = .{
+            .url = "https://github.com/koenigskraut/libwebp/archive/42cafaf772d695fc448773a815190fab116e1c0e.tar.gz",
+            .hash = "122013a1517984e200bb71d997f9b748fbc0366048c2646e187df2589c2bd96c48c6",
+        },
+        .libvpx = .{
+            .url = "https://github.com/koenigskraut/libvpx/archive/b15768198f51994a6ac67a975221ee8136af7b8b.tar.gz",
+            .hash = "1220ba4ef6225046614fcdd70b19c50bc3dba86303b5faa78658abb218f34697b5d3",
+        },
 
         // This is used to compile some assembly files into object files for x86.
         // Without this, ffmpeg considers the build "crippled".
